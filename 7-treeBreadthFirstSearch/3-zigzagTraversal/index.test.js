@@ -20,7 +20,7 @@ test("test 1", () => {
   expect(func(root)).toEqual([12, 1, 7, 9, 10, 5, 17, 20]);
 });
 
-test("test 1", () => {
+test("test 2", () => {
   const root = new TreeNode(1);
   root.left = new TreeNode(2);
   root.right = new TreeNode(3);
