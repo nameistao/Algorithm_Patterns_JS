@@ -5,16 +5,6 @@ class Node {
     this.value = value;
     this.next = next;
   }
-
-  get_list() {
-    result = "";
-    temp = this;
-    while (temp !== null) {
-      result += temp.value + " ";
-      temp = temp.next;
-    }
-    return result;
-  }
 }
 
 let head = new Node(2);
