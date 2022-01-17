@@ -12,7 +12,7 @@ class WindowMedian {
       return;
     }
 
-    if (num > this.maxHeap.peek()) {
+    if (num > this.maxHeap.peek() || this.maxHeap.length === 0) {
       this.minHeap.push(num);
     } else {
       this.maxHeap.push(num);
@@ -67,7 +67,6 @@ const func = (arr, k) => {
     answer.push(windowMedian.getMedian());
     i++;
   }
-
   return answer;
 };
 
