@@ -6,13 +6,10 @@ const func = (arr) => {
     const temp = [];
 
     for (const inner of answer) {
-      //temp.push(num, ...inner);
       for (let j = 0; j < inner.length + 1; j++) {
         temp.push([...inner.slice(0, j), num, ...inner.slice(j)]);
       }
-      //temp.push(...inner, num);
     }
-    console.log(temp);
     answer = temp;
   }
 
