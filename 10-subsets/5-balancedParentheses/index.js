@@ -1,20 +1,26 @@
 const func = (num) => {
-  let arr = ["()"];
-  let i = 1;
-  while (i < num) {
-    const set = new Set();
+  let arr = [["", 0, 0]];
 
-    arr.forEach((elem) => {
-      set.add("()" + elem);
-      set.add(elem + "()");
-      set.add("(" + elem + ")");
-    });
+  while (arr.length) {
+    const temp = [];
+    for (const inner of arr) {
+      const [string, open, closed] = inner;
 
-    arr = Array.from(set);
-    i++;
+      if (open < num) {
+        temp.push([string + "(", open + 1, closed]);
+      }
+
+      if (closed < open) {
+        temp.push([string + ")", open, closed + 1]);
+      }
+    }
+    arr = temp;
+    if (arr.every((elem) => elem[2] === num)) {
+      break;
+    }
   }
 
-  return new Set(arr);
+  return new Set(arr.map((elem) => elem[0]));
 };
 
 export default func;
