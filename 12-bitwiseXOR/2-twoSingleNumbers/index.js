@@ -4,7 +4,7 @@ const func = (arr) => {
   let cur = 1;
 
   while (true) {
-    if ((xor ^ cur) < xor) {
+    if (xor & cur) {
       rightBit = cur;
       break;
     }
@@ -15,7 +15,7 @@ const func = (arr) => {
     arr2 = [];
 
   for (const num of arr) {
-    if ((num ^ rightBit) < num) {
+    if (num & rightBit) {
       arr1.push(num);
     } else {
       arr2.push(num);
