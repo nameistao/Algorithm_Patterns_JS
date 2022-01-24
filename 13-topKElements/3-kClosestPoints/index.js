@@ -5,7 +5,6 @@ const func = (points, k) => {
 
   points.forEach((elem) => {
     const dist = (elem[0] ** 2 + elem[1] ** 2) ** 0.5;
-    console.log(dist);
 
     heap.push([dist, elem]);
 
