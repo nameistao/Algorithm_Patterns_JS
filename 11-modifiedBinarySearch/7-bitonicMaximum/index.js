@@ -4,9 +4,7 @@ const func = (arr) => {
     mid;
 
   while (l <= r) {
-    console.log("here");
     mid = Math.floor((l + r) / 2);
-    console.log(arr[mid]);
     if (
       arr[mid] > (arr[mid - 1] ?? Number.MIN_SAFE_INTEGER) &&
       arr[mid] > (arr[mid + 1] ?? Number.MIN_SAFE_INTEGER)
