@@ -11,7 +11,6 @@ const func = (arr, k, x) => {
     }
   });
 
-  console.log(heap);
   const answer = [];
   for (let i = 0; i < k; i++) {
     answer.push(heap.pop()[1]);
