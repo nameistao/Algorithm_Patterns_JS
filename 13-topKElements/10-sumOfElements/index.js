@@ -10,7 +10,6 @@ const func = (arr, k1, k2) => {
     }
   });
 
-  console.log(heap);
   let answer = 0;
   for (let i = 0; i < k2 - k1 - 1; i++) {
     answer += heap.pop();
