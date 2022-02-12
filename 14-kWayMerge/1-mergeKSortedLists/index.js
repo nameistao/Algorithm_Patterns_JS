@@ -1,7 +1,6 @@
 import Heap from "collections/heap";
 
 const func = (lists) => {
-  const answer = [];
   const minHeap = new Heap([], null, (a, b) => b.value - a.value);
 
   lists.forEach((elem) => {
