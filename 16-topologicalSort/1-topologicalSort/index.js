@@ -17,8 +17,6 @@ const func = (vertices, edges) => {
     }
   }
 
-  console.log(answer);
-
   for (const key of answer) {
     const fromSet = fromMap.get(key);
     if (fromSet != null) {
