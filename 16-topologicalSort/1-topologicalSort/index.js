@@ -1,27 +1,36 @@
 const func = (vertices, edges) => {
-  const map = new Map();
-  const tos = new Set();
+  const toMap = new Map();
+  const fromMap = new Map();
   edges.forEach(([from, to]) => {
-    const toSet = map.get(to) ?? new Set();
-    toSet.add(from);
-    map.set(to, toSet);
-
-    const fromSet = map.get(from) ?? new Set();
+    const fromSet = fromMap.get(from) ?? new Set();
     fromSet.add(to);
-    map.set(from, fromSet);
+    fromMap.set(from, fromSet);
 
-    tos.add(to);
+    const toNum = toMap.get(to) ?? 0;
+    toMap.set(to, toNum + 1);
   });
 
   const answer = new Set();
-  for (const [key, value] of map) {
-    if (tos.has(key) === false) {
+  for (const [key, value] of fromMap) {
+    if (toMap.has(key) === false) {
       answer.add(key);
     }
   }
 
+  console.log(answer);
+
   for (const key of answer) {
-    Array.from(map.get(key)).forEach((elem) => answer.add(elem));
+    const fromSet = fromMap.get(key);
+    if (fromSet != null) {
+      for (const innerKey of fromSet) {
+        let num = toMap.get(innerKey);
+        toMap.set(innerKey, num - 1);
+        if (num - 1 === 0) {
+          answer.add(innerKey);
+          toMap.delete(innerKey);
+        }
+      }
+    }
   }
 
   return Array.from(answer);
